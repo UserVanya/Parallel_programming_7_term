@@ -1,0 +1,19 @@
+template <typename T>
+std::ostream &operator<< (std::ostream &out, const std::vector<T> &v);
+
+template <typename T>
+std::ostream &
+operator<< (std::ostream &out, const std::vector<T> &v)
+{
+  bool isFirst = true;
+  out << "[";
+  for (const auto &el : v)
+    {
+      if (!isFirst)
+        std::cout << ", ";
+      isFirst = false;
+      out << el;
+    }
+  out << "]";
+  return out;
+}

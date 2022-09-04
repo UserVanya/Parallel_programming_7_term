@@ -4,12 +4,16 @@
 #include <iostream>
 #include <limits>
 
+double get_val(double prev, double cur, double next)
+{
+  return prev * cur * next / 3;
+}
 int
 main (int argc, char *argv[])
 {
   size_t n = 100'000;
   n = 10;
-  std::vector<size_t> a(n), b(n, 0);
+  std::vector<double> a(n), b(n, 0);
   
   //std::cout << std::numeric_limits<double>::max() << std::endl; gives 1.79769e+308, 
   //so everithing will be ok

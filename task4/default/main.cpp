@@ -4,7 +4,7 @@
 #include <limits>
 #include <vector>
 
-size_t
+double
 get_val (size_t prev, size_t cur, size_t next)
 {
   return prev * cur * next / 3;

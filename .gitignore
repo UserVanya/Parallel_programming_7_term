@@ -1,3 +1,7 @@
 **/default/main
 **/addition/main
 /.vscode
+**/default_alternative/main
+task4/default/experiment/main
+**/results
+**.json

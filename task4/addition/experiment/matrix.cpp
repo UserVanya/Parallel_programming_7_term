@@ -14,7 +14,7 @@ Matrix::Matrix (size_t rowsNum, size_t colsNum, bool isRandom)
           rd; // Will be used to obtain a seed for the random number engine
       std::mt19937 gen (
           rd ()); // Standard mersenne_twister_engine seeded with rd()
-      std::uniform_real_distribution<double> distribution (0.0, 2.0);
+      std::uniform_real_distribution<double> distribution (-2.0, 2.0);
 #pragma parallel for
       for (int i = 0; i < rowsNum * colsNum; i++)
         m_data[i] = distribution (gen);

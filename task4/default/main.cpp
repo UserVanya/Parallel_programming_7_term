@@ -1,28 +1,30 @@
-#include "omp.h"
+#include "experiment/matrix.h"
 #include <cassert>
 #include <iostream>
-#include <limits>
-#include <vector>
+#include "time.h"
+#include "omp.h"
 
-double
-get_val (size_t prev, size_t cur, size_t next)
-{
-  return prev * cur * next / 3;
-}
 int
 main (int argc, char *argv[])
 {
-  size_t n = 100'000; n = 20;
-  std::vector<size_t> a (n), b (n, 0);
-  // std::cout << std::numeric_limits<double>::max() << std::endl;
-  // gives 1.79769e+308, so everithing will be ok
-  for (size_t i = 0; i < n; i++)
-    a[i] = i;
-#pragma omp parallel
-  {
-#pragma parallel for
-    for (size_t i = 1; i < n - 1; i++)
-        b[i] = get_val (a[i - 1], a[i], a[i + 1]);
-  }
+  size_t ms = std::atoi (argv[1]);
+  assert (!argv[2]);
+  assert (argv[1]);
+  Matrix a (ms, ms), b (ms, ms);
+  struct timespec begin, end;
+  size_t opsNum = ms * ms * ms;
+  size_t freq = 1e9;
+  std::cout << "Minimum estimated time: "
+            << 1.0 * opsNum / freq / omp_get_max_threads () << std::endl;
+  std::cout << "Matrix multiplication started..." << std::endl;
+  clock_gettime (CLOCK_REALTIME, &begin);
+  a *b;
+  clock_gettime (CLOCK_REALTIME, &end);
+  std::cout << "Done!" << std::endl;
+  double elapsed = end.tv_sec - begin.tv_sec;
+  elapsed
+      += (end.tv_nsec - begin.tv_nsec)
+             / 1'000'000'000.0;
+  std::cout << "Elapsed time: " << elapsed << std::endl;
   return 0;
 }

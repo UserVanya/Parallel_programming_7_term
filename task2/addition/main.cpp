@@ -11,6 +11,7 @@ main (int argc, char *argv[])
   int sum = 0;
   #pragma omp parallel reduction(+: sum)
   {
+    sum = 0;
     //The VAR sum in this context is private(local) 
     //The local VAR sum for each thread will be summed into global VAR sum after the parallel block
     #pragma omp for schedule(static)

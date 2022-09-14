@@ -3,7 +3,25 @@
 #include <vector>
 #include <iostream>
 #include <limits>
+template <typename T>
+std::ostream &operator<< (std::ostream &out, const std::vector<T> &v);
 
+template <typename T>
+std::ostream &
+operator<< (std::ostream &out, const std::vector<T> &v)
+{
+  bool isFirst = true;
+  out << "[";
+  for (const auto &el : v)
+    {
+      if (!isFirst)
+        std::cout << ", ";
+      isFirst = false;
+      out << el;
+    }
+  out << "]";
+  return out;
+}
 int
 main (int argc, char *argv[])
 {
@@ -21,5 +39,7 @@ main (int argc, char *argv[])
     for (size_t i = 1; i < n - 1; i++)
         b[i] = a[i - 1] * a[i] * a[i + 1] / 3;
   }
+// an ability to test
+//  std::cout << b << std::endl;
   return 0;
 }

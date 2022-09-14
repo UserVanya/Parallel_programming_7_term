@@ -3,7 +3,25 @@
 #include <iostream>
 #include <limits>
 #include <vector>
+template <typename T>
+std::ostream &operator<< (std::ostream &out, const std::vector<T> &v);
 
+template <typename T>
+std::ostream &
+operator<< (std::ostream &out, const std::vector<T> &v)
+{
+  bool isFirst = true;
+  out << "[";
+  for (const auto &el : v)
+    {
+      if (!isFirst)
+        std::cout << ", ";
+      isFirst = false;
+      out << el;
+    }
+  out << "]";
+  return out;
+}
 int
 main (int argc, char *argv[])
 {
@@ -40,5 +58,7 @@ main (int argc, char *argv[])
       }
   }
   a[n - 1] = 0;
+// an ability to test
+//  std::cout << a << std::endl;
   return 0;
 }

@@ -7,6 +7,7 @@ main (int argc, char *argv[])
   int sum = 0, n;
   std::cout << "Enter N:" << std::endl;
   std::cin >> n;
+  assert(n > 0);
 #pragma omp parallel for
   for (int i = 0; i <= n; i++)
     {

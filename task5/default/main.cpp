@@ -16,6 +16,7 @@ int main(int argc, char* argv[])
   assert(argv[1]);
   size_t n = std::atoi(argv[1]);
   long double x, sum = 0;
+  std::cout << "Enter x:" << std::endl;
   std::cin >> x;
   struct timespec begin, end;
   clock_gettime (CLOCK_REALTIME, &begin);

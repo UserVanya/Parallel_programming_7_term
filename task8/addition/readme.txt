@@ -1,0 +1,1 @@
+In order to get sorted array you can type it in console in one line(without /n) or type name of file from which elements will be scanned

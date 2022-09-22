@@ -3,32 +3,23 @@
 #include <cmath>
 #include <iostream>
 #include <vector>
-// class PrimeNumDetector
-// {
-// public:
-//   PrimeNumDetector () 
-//   {
-//     m_firstPrimeList = {2, 3, 5, 7, 11, }
-//   }
-  bool
-  isPrime (size_t val)
-  {
-    if (val == 1 || val == 2) 
-      return true;
-    //Doesn't need to check every even number
-    if (val == 0 || val % 2 == 0)
-      return false;
-    for (int i = 3; i <= sqrt (val); i+=2)
-      {
-        if (val % i == 0)
-          return false;
-      }
+bool
+isPrime (size_t val)
+{
+  if (val == 1 || val == 2)
     return true;
-  }
-
-// private:
-//   std::vector<size_t> m_firstPrimeList;
-// };
+  // Doesn't need to check every even number
+  if (val == 0 || val % 2 == 0)
+    return false;
+  // Let sqrt(val) = s then we check all values before s because of symmetry
+  // checked * (s + i) = (s + i) * checked
+  for (int i = 3; i <= sqrt (val); i += 2)
+    {
+      if (val % i == 0)
+        return false;
+    }
+  return true;
+}
 int
 main (int argc, char *argv[])
 {
@@ -43,8 +34,8 @@ main (int argc, char *argv[])
     primeNumber += isPrime (i);
   clock_gettime (CLOCK_REALTIME, &end);
   double elapsed = end.tv_sec - begin.tv_sec;
-  elapsed += (end.tv_nsec - begin.tv_nsec) / 1'000'000'000.0;
-  std::cout << "Elapsed time: " << elapsed << std::endl;
-  std::cout << "Number of prime numbers: " << primeNumber << std::endl; 
+  elapsed += (end.tv_nsec - begin.tv_nsec) / 1'000'000'000.0; std::cout
+             << "Elapsed time: " << elapsed << std::endl;
+  std::cout << "Number of prime numbers: " << primeNumber << std::endl;
   return 0;
 }

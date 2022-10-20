@@ -6,3 +6,6 @@ task4/default/experiment/main
 **/results
 **.json
 task4/addition/experiment/main
+task9/bugged1
+task9/bugged2
+task9/bugged3

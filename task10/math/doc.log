@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.23 (TeX Live 2021/W32TeX) (preloaded format=pdflatex 2022.3.17)  26 NOV 2022 19:54
+This is pdfTeX, Version 3.141592653-2.6-1.40.23 (TeX Live 2021/W32TeX) (preloaded format=pdflatex 2022.3.17)  27 NOV 2022 01:26
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -334,17 +334,24 @@ File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 ) [1
 
 {c:/texlive/2021/texmf-var/fonts/map/pdftex/updmap/pdftex.map}] [2] (./doc.aux)
-Package rerunfilecheck Info: File `doc.out' has not changed.
-(rerunfilecheck)             Checksum: 9D871DCDFE6E5BA16071ACCA639E8B74;600.
+
+
+Package rerunfilecheck Warning: File `doc.out' has changed.
+(rerunfilecheck)                Rerun to get outlines right
+(rerunfilecheck)                or use package `bookmark'.
+
+Package rerunfilecheck Info: Checksums for `doc.out':
+(rerunfilecheck)             Before: 9D871DCDFE6E5BA16071ACCA639E8B74;600
+(rerunfilecheck)             After:  17D812CC8597B02C49ADD569621696CB;661.
  ) 
 Here is how much of TeX's memory you used:
- 8962 strings out of 478276
- 139783 string characters out of 5850489
+ 8965 strings out of 478276
+ 139813 string characters out of 5850489
  440714 words of memory out of 5000000
- 27046 multiletter control sequences out of 15000+600000
- 478643 words of font info for 64 fonts, out of 8000000 for 9000
+ 27048 multiletter control sequences out of 15000+600000
+ 478812 words of font info for 65 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 60i,8n,63p,221b,331s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 60i,8n,63p,256b,331s stack positions out of 5000i,500n,10000p,200000b,80000s
 <c:/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb><c:/tex
 live/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb><c:/texlive/2021
 /texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb><c:/texlive/2021/texmf-di
@@ -355,11 +362,12 @@ c/amsfonts/cm/cmr12.pfb><c:/texlive/2021/texmf-dist/fonts/type1/public/amsfonts
 fb><c:/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb><c:/texl
 ive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb><c:/texlive/2021/
 texmf-dist/fonts/type1/public/amsfonts/cm/cmsy6.pfb><c:/texlive/2021/texmf-dist
-/fonts/type1/public/amsfonts/cm/cmsy8.pfb>
-Output written on doc.pdf (2 pages, 127258 bytes).
+/fonts/type1/public/amsfonts/cm/cmsy8.pfb><c:/texlive/2021/texmf-dist/fonts/typ
+e1/public/amsfonts/cm/cmtt12.pfb>
+Output written on doc.pdf (2 pages, 135246 bytes).
 PDF statistics:
- 106 PDF objects out of 1000 (max. 8388607)
- 77 compressed objects within 1 object stream
+ 113 PDF objects out of 1000 (max. 8388607)
+ 82 compressed objects within 1 object stream
  16 named destinations out of 1000 (max. 500000)
  33 words of extra memory for PDF output out of 10000 (max. 10000000)
 

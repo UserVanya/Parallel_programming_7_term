@@ -1,0 +1,66 @@
+\documentclass[12pt, letterpaper]{article}
+\usepackage[utf8]{inputenc}
+\usepackage{graphicx}
+\usepackage{amsmath, amsfonts}
+\usepackage{cases}
+\usepackage{hyperref}
+\graphicspath{ {./images/} }
+\title{Parallel programming. Task 10.}
+\author{Ivan Startsev}
+\date{\today}
+\begin{document}
+	\maketitle
+	\section{Task statement}
+	Consider boundary value problem:
+	\begin{equation}
+		y'' = f(x, y); \quad y(x_0) = a; \quad y(x_1) = b
+	\end{equation}
+	The task is to obtain solution via Numerov approximation:
+	\begin{equation}
+	y_{m+1} - 2 y_m + y_{m-1} = h^2 \cdot [f_m + \frac{1}{12}(f_{m+1} - 2f_m + f_{m-1})]
+	\end{equation}
+	\section{Obtaining solution}
+	\subsection{Newton's linearization}
+	First of all, using Numerov approximation we can construct the system of $N-2$ non-linear equations.
+	\begin{equation}\label{ODY}
+	\begin{cases}
+	g_1 = y_2 - 2 y_1 + a - h^2 \cdot [f_1 + \frac{1}{12}(f_2 - 2f_1 + f(a))] = 0	 \\
+	\dots \\
+	g_m = y_{m+1} - 2 y_m + y_{m-1} - h^2 \cdot [f_m + \frac{1}{12}(f_{m+1} - 2f_m + f_{m-1})] = 0\\
+	\dots \\
+	g_{N-2} = b - 2 y_{N-2} + y_{N-3} - h^2 \cdot [f_{N-2} + \frac{1}{12}(f(b) - 2f_{N-2} + f_{N-3})] = 0
+	\end{cases}	
+	\end{equation}
+	The solution can be found using Newton's linearization:
+	\begin{equation}
+	\textbf{y}^{k+1} = \textbf{y}^k - [G'(\textbf{y}^{k})]^{-1} \cdot \textbf{g}(\textbf{y}^{k}) = \textbf{y}^k - \textbf{p}(\textbf{y}^k) 
+	\end{equation}
+	Where $G$ is Jacobi matrix and $\textbf{p}(\textbf{y}^k)$ can be obtained from:
+	\begin{equation}
+		G(\textbf{y}^k)\cdot p = \textbf{g}(\textbf{y}^k) 
+	\end{equation}
+	The matrix G has the form:
+	\begin{equation}
+	\begin{pmatrix}
+	\frac{\partial g_1}{\partial y_1}& \frac{\partial g_1}{\partial y_2}& \dots & \frac{\partial g_1}{\partial y_{N-2}}\\
+	\frac{\partial g_2}{\partial y_1}& \frac{\partial g_2}{\partial y_2}& \dots & \frac{\partial g_2}{\partial y_{N-2}}\\
+	\dots & \dots & \dots & \dots\\
+\frac{\partial g_{N-2}}{\partial y_1}& \frac{\partial g_{N-2}}{\partial y_2}& \dots& 				\frac{\partial g_{N-2}}{\partial y_{N-2}}
+	\end{pmatrix}
+	\end{equation}
+	With Numerov approximation this matrix become tridiagonal.
+	\begin{equation}
+	\frac{\partial g_i}{\partial y_i} = -2 - h^2 \cdot \frac{5}{6}f'_y(x_i, y_i)
+	, \quad i \in [1, N-2]	
+	\end{equation}
+	\begin{equation}
+	\frac{\partial g_{i}}{\partial y_{i-1}} = 1 - h^2 \cdot \frac{1}{12}f'_y(x_{i-1}, y_{i-1})	, \quad i \in [2, N-2]
+	\end{equation}
+	\begin{equation}
+	\frac{\partial g_{i}}{\partial y_{i+1}} = 1 - h^2 \cdot \frac{1}{12}f'_y(x_{i+1}, y_{i+1}), \quad i \in [1, N-3]
+	\end{equation}
+	Others 0.
+	\subsection{Solving linear equation}
+	
+	
+\end{document}

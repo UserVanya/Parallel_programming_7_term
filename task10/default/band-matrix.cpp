@@ -46,7 +46,7 @@ operator<< (std::ostream &out, const BandMatrix &matrix)
     {
       for (size_t j = 0; j < matrix.Size (); j++)
         {
-          out << std::setw (5) << std::fixed << std::setprecision (2);
+          out << std::setw (20) << std::fixed << std::setprecision (15);
             
           if(abs((int)i - (int)j) <= 1)
             out << matrix.At (i, j);

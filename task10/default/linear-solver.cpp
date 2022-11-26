@@ -2,11 +2,11 @@
 #include <cassert>
 #include <cmath>
 #include "linear-solver.h"
+#include "auxiliary.h"
 ReductionSolver::ReductionSolver(BandMatrix G, std::vector<double> g):
 m_G(G),
 m_g(g)
 {
-  std::cout << G << std::endl;
   assert(g.size() == G.Size());
   m_n = G.Size() + 1;
   bool isPowerOfTwo = !(m_n == 0) && !(m_n & (m_n - 1));

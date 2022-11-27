@@ -27,6 +27,7 @@ float dotprod()
         sum = sum + (a[i] * b[i]);
         printf("  tid= %d i=%d\n", tid, i);
     }
+    return sum;
 }
 
 
